@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1010826816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010826817}
+  - component: {fileID: 1010826820}
+  - component: {fileID: 1010826819}
+  - component: {fileID: 1010826818}
+  m_Layer: 0
+  m_Name: Pipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010826817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010826816}
+  m_LocalRotation: {x: 0.50000066, y: -0.4999993, z: 0.49999928, w: 0.5000008}
+  m_LocalPosition: {x: -3.07, y: -0.26, z: 0.02}
+  m_LocalScale: {x: 0.053081695, y: 2.8137946, z: 0.34557363}
+  m_Children: []
+  m_Father: {fileID: 1637806815157638276}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 90.00001}
+--- !u!33 &1010826820
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010826816}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1010826819
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010826816}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 04dc7a83957b8f54da895c8e63b41aca, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &1010826818
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010826816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1637806813280949186
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +105,7 @@ GameObject:
   - component: {fileID: 1637806813280949188}
   - component: {fileID: 1637806813280949189}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,12 +118,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637806813280949186}
-  m_LocalRotation: {x: -0.21347262, y: -0.6741138, z: 0.6741138, w: -0.21347266}
-  m_LocalPosition: {x: 1.5068314, y: 0.03500004, z: 0.9793671}
-  m_LocalScale: {x: 0.05308169, y: 2.0468075, z: 0.085617}
+  m_LocalRotation: {x: -0.241013, y: 0.6647652, z: -0.6647652, w: -0.24101296}
+  m_LocalPosition: {x: -1.41, y: -0.28, z: -1.55}
+  m_LocalScale: {x: 0.0530817, y: 2.0468075, z: 0.3455737}
   m_Children: []
-  m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 12
+  m_Father: {fileID: 1637806815324925226}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: -39.856995}
 --- !u!33 &1637806813280949191
 MeshFilter:
@@ -58,7 +150,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a39a64e9d7822aa42a5b2061b7c63704, type: 2}
+  - {fileID: 2100000, guid: 04dc7a83957b8f54da895c8e63b41aca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,8 +195,9 @@ GameObject:
   - component: {fileID: 1637806813635265614}
   - component: {fileID: 1637806813632365678}
   - component: {fileID: 1637806813633365678}
+  - component: {fileID: 484083449}
   m_Layer: 0
-  m_Name: BlueGlobe (3)
+  m_Name: CenterGlobe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,6 +263,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &484083449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806813635565678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: added6c50042e6e4aa686c034eba5857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  matChangeTime: 3
 --- !u!1 &1637806813676733120
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +288,7 @@ GameObject:
   - component: {fileID: 1637806813676904160}
   - component: {fileID: 1637806813675609792}
   - component: {fileID: 1637806813674478592}
+  - component: {fileID: 1828734804}
   m_Layer: 0
   m_Name: ForceField
   m_TagString: Untagged
@@ -247,6 +355,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1828734804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806813676733120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: added6c50042e6e4aa686c034eba5857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  matChangeTime: 0.2
 --- !u!1 &1637806813676733122
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +424,7 @@ GameObject:
   - component: {fileID: 1637806813676904164}
   - component: {fileID: 1637806813675609794}
   - component: {fileID: 1637806813674478594}
+  - component: {fileID: 1557570888}
   m_Layer: 0
   m_Name: ForceGate
   m_TagString: Untagged
@@ -369,6 +492,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1557570888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806813676733124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: added6c50042e6e4aa686c034eba5857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  matChangeTime: 0.2
 --- !u!1 &1637806813767930289
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,8 +517,9 @@ GameObject:
   - component: {fileID: 1637806813768158609}
   - component: {fileID: 1637806813768961457}
   - component: {fileID: 1637806813769928561}
+  - component: {fileID: 459607827}
   m_Layer: 0
-  m_Name: Teleport (1)
+  m_Name: RightTeleporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,7 +537,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1637806813768961457
 MeshFilter:
@@ -447,6 +585,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &459607827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806813767930289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: added6c50042e6e4aa686c034eba5857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  matChangeTime: 2
 --- !u!1 &1637806813831343011
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,8 +610,11 @@ GameObject:
   - component: {fileID: 1637806813831640963}
   - component: {fileID: 1637806813830346659}
   - component: {fileID: 1637806813829346659}
-  m_Layer: 0
-  m_Name: Kandle2 (4)
+  - component: {fileID: 120251908}
+  - component: {fileID: 120251909}
+  - component: {fileID: 3882409824987148650}
+  m_Layer: 11
+  m_Name: LeftKandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,7 +630,8 @@ Transform:
   m_LocalRotation: {x: 1.7763568e-15, y: 0.6087588, z: -0.00000002660969, w: -0.7933554}
   m_LocalPosition: {x: 1.3015673, y: 0.08899973, z: -6.115262}
   m_LocalScale: {x: 1, y: 0.24775329, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1637806815076527992}
   m_Father: {fileID: 8003017467331296885}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -525,6 +681,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &120251908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806813831343011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42b3c313d991ec41a0210e237059a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onZapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 120251908}
+        m_MethodName: KandleAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  boxMat: {fileID: 1637806813829346659}
+  pipeMat: {fileID: 1637806815076527974}
+  boxToColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  boxMatChangeTime: 2
+  pipeFillTime: 2
+--- !u!65 &120251909
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806813831343011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7803589, y: 1.683082, z: 0.78035736}
+  m_Center: {x: 0.00000016391277, y: 0.841541, z: 0.00000023841858}
+--- !u!114 &3882409824987148650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806813831343011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cf45912e044b44580eb44ab36f436f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1637806814140244576
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +750,7 @@ GameObject:
   - component: {fileID: 1637806814140244578}
   - component: {fileID: 1637806814140244579}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,12 +763,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637806814140244576}
-  m_LocalRotation: {x: -0.5934196, y: -0.38451684, z: 0.38451684, w: -0.5934196}
-  m_LocalPosition: {x: 0.7479683, y: 0.034999937, z: -1.5204021}
-  m_LocalScale: {x: 0.053081714, y: 2.0468082, z: 0.08561702}
+  m_LocalRotation: {x: 0.23671468, y: 0.66630787, z: -0.6663079, w: 0.23671466}
+  m_LocalPosition: {x: 1.23, y: -0.28, z: -1.46}
+  m_LocalScale: {x: 0.053081714, y: 2.0468082, z: 0.34557375}
   m_Children: []
-  m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 9
+  m_Father: {fileID: 1637806814543877393}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 180, z: 39.115997}
 --- !u!33 &1637806814140244581
 MeshFilter:
@@ -583,7 +795,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a39a64e9d7822aa42a5b2061b7c63704, type: 2}
+  - {fileID: 2100000, guid: 04dc7a83957b8f54da895c8e63b41aca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -628,8 +840,9 @@ GameObject:
   - component: {fileID: 1637806814185754663}
   - component: {fileID: 1637806814189178887}
   - component: {fileID: 1637806814188049095}
+  - component: {fileID: 2017286602}
   m_Layer: 0
-  m_Name: Teleport
+  m_Name: LeftTeleporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,6 +908,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2017286602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806814186048519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: added6c50042e6e4aa686c034eba5857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  matChangeTime: 2
 --- !u!1 &1637806814272690352
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +935,7 @@ GameObject:
   - component: {fileID: 1637806814272690354}
   - component: {fileID: 1637806814272690355}
   m_Layer: 0
-  m_Name: Cylinder (3)
+  m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,12 +948,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637806814272690352}
-  m_LocalRotation: {x: -0.560987, y: 0.4304575, z: -0.4304575, w: -0.560987}
-  m_LocalPosition: {x: 3.9720194, y: 0.034999955, z: -1.056046}
-  m_LocalScale: {x: 0.053081695, y: 1.4143231, z: 0.08561703}
+  m_LocalRotation: {x: 0.7071068, y: -0.000000029802322, z: -0.000000014927691, w: 0.7071068}
+  m_LocalPosition: {x: 0.04, y: -0.28, z: 1.75}
+  m_LocalScale: {x: 0.0530817, y: 1.4143237, z: 0.34557387}
   m_Children: []
-  m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 11
+  m_Father: {fileID: 1637806815191485156}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &1637806814272690357
 MeshFilter:
@@ -753,7 +980,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a39a64e9d7822aa42a5b2061b7c63704, type: 2}
+  - {fileID: 2100000, guid: 04dc7a83957b8f54da895c8e63b41aca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -798,8 +1025,11 @@ GameObject:
   - component: {fileID: 1637806814543877393}
   - component: {fileID: 1637806814545204529}
   - component: {fileID: 1637806814546302961}
-  m_Layer: 0
-  m_Name: Kandle2 (1)
+  - component: {fileID: 1252592173}
+  - component: {fileID: 1252592172}
+  - component: {fileID: 7929858006241013411}
+  m_Layer: 11
+  m_Name: TopLeftKandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -815,9 +1045,10 @@ Transform:
   m_LocalRotation: {x: 1.7763568e-15, y: 0.6087588, z: -0.00000002660969, w: -0.7933554}
   m_LocalPosition: {x: -0.9783759, y: 0.088999905, z: -2.326033}
   m_LocalScale: {x: 1, y: 0.24775329, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1637806814140244580}
   m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1637806814545204529
 MeshFilter:
@@ -865,6 +1096,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1252592173
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806814544103729}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7803589, y: 1.683082, z: 0.78035736}
+  m_Center: {x: -0.00000031292439, y: 0.841541, z: -0.000000029802322}
+--- !u!114 &1252592172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806814544103729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42b3c313d991ec41a0210e237059a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onZapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1252592172}
+        m_MethodName: KandleAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  boxMat: {fileID: 1637806814546302961}
+  pipeMat: {fileID: 1637806814140244578}
+  boxToColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  boxMatChangeTime: 2
+  pipeFillTime: 2
+--- !u!114 &7929858006241013411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806814544103729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cf45912e044b44580eb44ab36f436f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1637806815076527972
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +1165,7 @@ GameObject:
   - component: {fileID: 1637806815076527974}
   - component: {fileID: 1637806815076527975}
   m_Layer: 0
-  m_Name: Cylinder (2)
+  m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -891,13 +1178,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637806815076527972}
-  m_LocalRotation: {x: -0.092299305, y: 0.70105696, z: -0.70105696, w: -0.09229931}
-  m_LocalPosition: {x: 2.6935406, y: 0.034999963, z: -0.80457306}
-  m_LocalScale: {x: 0.05308169, y: 5.627589, z: 0.085617}
+  m_LocalRotation: {x: -0.49998295, y: -0.50001717, z: 0.50001717, w: -0.4999827}
+  m_LocalPosition: {x: 2.94, y: -0.38, z: 0.03}
+  m_LocalScale: {x: 0.053081695, y: 2.8137946, z: 0.34557363}
   m_Children: []
-  m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 90.00001}
+  m_Father: {fileID: 1637806813831640963}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 269.996}
 --- !u!33 &1637806815076527993
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -923,7 +1210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a39a64e9d7822aa42a5b2061b7c63704, type: 2}
+  - {fileID: 2100000, guid: 04dc7a83957b8f54da895c8e63b41aca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -968,8 +1255,11 @@ GameObject:
   - component: {fileID: 1637806815157638276}
   - component: {fileID: 1637806815156311204}
   - component: {fileID: 1637806815155213924}
-  m_Layer: 0
-  m_Name: Kandle2 (5)
+  - component: {fileID: 108274099}
+  - component: {fileID: 108274098}
+  - component: {fileID: 5943678149035437555}
+  m_Layer: 11
+  m_Name: RightKandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +1275,8 @@ Transform:
   m_LocalRotation: {x: 1.7763568e-15, y: 0.6087588, z: -0.00000002660969, w: -0.7933554}
   m_LocalPosition: {x: 4.201799, y: 0.08900021, z: 4.7855387}
   m_LocalScale: {x: 1, y: 0.24775329, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1010826817}
   m_Father: {fileID: 8003017467331296885}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1035,6 +1326,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &108274099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815157209252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7803589, y: 1.683082, z: 0.78035736}
+  m_Center: {x: -0.0000012665987, y: 0.841541, z: 0.0000009536743}
+--- !u!114 &108274098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815157209252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42b3c313d991ec41a0210e237059a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onZapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 108274098}
+        m_MethodName: KandleAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  boxMat: {fileID: 1637806815155213924}
+  pipeMat: {fileID: 1010826819}
+  boxToColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  boxMatChangeTime: 2
+  pipeFillTime: 2
+--- !u!114 &5943678149035437555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815157209252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cf45912e044b44580eb44ab36f436f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1637806815191520964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,8 +1393,11 @@ GameObject:
   - component: {fileID: 1637806815191485156}
   - component: {fileID: 1637806815188585156}
   - component: {fileID: 1637806815189583876}
-  m_Layer: 0
-  m_Name: Kandle2 (3)
+  - component: {fileID: 1164798093}
+  - component: {fileID: 1164798092}
+  - component: {fileID: 4301829452310071018}
+  m_Layer: 11
+  m_Name: BottomKandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1063,7 +1413,8 @@ Transform:
   m_LocalRotation: {x: 1.7763568e-15, y: 0.6087588, z: -0.00000002660969, w: -0.7933554}
   m_LocalPosition: {x: 5.6525517, y: 0.088999934, z: -1.5456953}
   m_LocalScale: {x: 1, y: 0.24775329, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1637806814272690356}
   m_Father: {fileID: 8003017467331296885}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1093,7 +1444,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cbae557f044977648b41fc880e6ccc6b, type: 2}
-  - {fileID: 2100000, guid: a39a64e9d7822aa42a5b2061b7c63704, type: 2}
+  - {fileID: 2100000, guid: aaee6c1a313059f48acf0111e6bab79c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1113,6 +1464,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1164798093
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815191520964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7803589, y: 1.683082, z: 0.78035736}
+  m_Center: {x: -0.00000016950071, y: 0.84154093, z: 0.0000014305115}
+--- !u!114 &1164798092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815191520964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42b3c313d991ec41a0210e237059a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onZapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1164798092}
+        m_MethodName: KandleAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  boxMat: {fileID: 1637806815189583876}
+  pipeMat: {fileID: 1637806814272690354}
+  boxToColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  boxMatChangeTime: 2
+  pipeFillTime: 2
+--- !u!114 &4301829452310071018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815191520964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cf45912e044b44580eb44ab36f436f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1637806815324434698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,8 +1531,11 @@ GameObject:
   - component: {fileID: 1637806815324925226}
   - component: {fileID: 1637806815323598090}
   - component: {fileID: 1637806815322501066}
-  m_Layer: 0
-  m_Name: Kandle2 (2)
+  - component: {fileID: 1304987604}
+  - component: {fileID: 1304987603}
+  - component: {fileID: 257012629522466805}
+  m_Layer: 11
+  m_Name: TopRightKandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,9 +1551,10 @@ Transform:
   m_LocalRotation: {x: 1.7763568e-15, y: 0.6087588, z: -0.00000002660969, w: -0.7933554}
   m_LocalPosition: {x: 0.37369597, y: 0.08900013, z: 2.7468805}
   m_LocalScale: {x: 1, y: 0.24775329, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1637806813280949190}
   m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1637806815323598090
 MeshFilter:
@@ -1191,6 +1602,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1304987604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815324434698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7803589, y: 1.683082, z: 0.78035736}
+  m_Center: {x: -0.00000055134296, y: 0.841541, z: -0.00000008940697}
+--- !u!114 &1304987603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815324434698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42b3c313d991ec41a0210e237059a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onZapEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1304987603}
+        m_MethodName: KandleAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  boxMat: {fileID: 1637806815322501066}
+  pipeMat: {fileID: 1637806813280949188}
+  boxToColor: {r: 0, g: 0.9738424, b: 1, a: 1}
+  boxMatChangeTime: 2
+  pipeFillTime: 2
+--- !u!114 &257012629522466805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637806815324434698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cf45912e044b44580eb44ab36f436f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6124616733005476838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,7 +1689,7 @@ Transform:
   - {fileID: 1637806813676904162}
   - {fileID: 1637806813676904164}
   m_Father: {fileID: 8003017467331296885}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7283664166899710193
 GameObject:
@@ -1253,17 +1720,13 @@ Transform:
   m_Children:
   - {fileID: 1637806813635265614}
   - {fileID: 1637806814185754663}
+  - {fileID: 1637806813768158609}
   - {fileID: 8694061718306651878}
   - {fileID: 1637806814543877393}
   - {fileID: 1637806815324925226}
-  - {fileID: 1637806813768158609}
   - {fileID: 1637806815191485156}
   - {fileID: 1637806813831640963}
   - {fileID: 1637806815157638276}
-  - {fileID: 1637806814140244580}
-  - {fileID: 1637806815076527992}
-  - {fileID: 1637806814272690356}
-  - {fileID: 1637806813280949190}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}

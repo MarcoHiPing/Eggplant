@@ -6,6 +6,15 @@ namespace Invector.vCharacterController
     {
         #region Inspector Variables
 
+        [Header("Sounds")]
+        public AudioClip normalLandingSound;
+        public AudioClip junkLandingSound;
+        public AudioClip metalLandingSound;
+        public AudioClip jumpSound;
+
+        public AudioClip[] normalFloorSounds;
+        public AudioClip[] metalFloorSounds;
+
         [Header("- Movement")]
 
         [Tooltip("Turn off if you have 'in place' animations and use this values above to move the character, or use with root motion as extra speed")]
@@ -145,6 +154,7 @@ namespace Invector.vCharacterController
             isGrounded = true;
         }
 
+
         public virtual void UpdateMotor()
         {
             CheckGround();
@@ -183,6 +193,9 @@ namespace Invector.vCharacterController
             bool useVerticalVelocity = true;
             if (useVerticalVelocity) targetVelocity.y = _rigidbody.velocity.y;
             _rigidbody.velocity = targetVelocity;
+
+
+
         }
 
         public virtual void CheckSlopeLimit()
@@ -295,6 +308,16 @@ namespace Invector.vCharacterController
 
             if (groundDistance <= groundMinDistance)
             {
+                if (!isGrounded)
+                {
+                    if (groundHit.transform.CompareTag("Metal"))
+                        AudioManager.instance.PlayClip(metalLandingSound, 0f);
+                    else if (groundHit.transform.CompareTag("Junk"))
+                        AudioManager.instance.PlayClip(junkLandingSound, 0f);
+                    else
+                        AudioManager.instance.PlayClip(normalLandingSound, 0f);
+                }
+
                 isGrounded = true;
                 if (!isJumping && groundDistance > 0.05f)
                     _rigidbody.AddForce(transform.up * (extraGravity * 2 * Time.deltaTime), ForceMode.VelocityChange);

@@ -1,19 +1,25 @@
 using System;
+using Photon.Pun;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
-    [RequireComponent(typeof (ThirdPersonCharacter))]
-    public class ThirdPersonUserControl : MonoBehaviour
+    [RequireComponent(typeof(ThirdPersonCharacter))]
+    public class ThirdPersonUserControl : MonoBehaviourPun
     {
+        public bool moveRelativeToCamera;
+        public bool isPlayerOne = true;
         private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-        
+        private float h, v;
+        private float rightStickX, rightStickY, rightTrigger;
+        private bool abilityCancelButton, abilityCanceled, abilityTriggered, nextToggled, teleportReset;
+
         private void Start()
         {
             // get the transform of the main camera
@@ -24,7 +30,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             else
             {
                 Debug.LogWarning(
-                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.");
+                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
                 // we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
             }
 
@@ -35,41 +41,88 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         private void Update()
         {
+            //if (photonView.IsMine)
+            //{
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                if (isPlayerOne)
+                    m_Jump = CrossPlatformInputManager.GetButtonDown("J1Jump");
+                else
+                {
+                    m_Jump = CrossPlatformInputManager.GetButtonDown("J2Jump");
+                }
             }
+
+
+
+            //if (PhotonNetwork.NickName.ToLower().Contains("gauntlet"))
+            //{ 
+            if (!teleportReset)
+            {
+                FindObjectOfType<GauntletTeleport>().TeleportIndicator(new Vector2(rightStickX, rightStickY));
+            }
+
+            if (rightTrigger > 0f && !nextToggled && (rightStickX != 0f && rightStickY != 0f))
+            {
+                FindObjectOfType<GauntletTeleport>().Teleport();
+                FindObjectOfType<GauntletTeleport>().ResetTeleportIndicator();
+                teleportReset = true;
+
+                nextToggled = true;
+            }
+            //}
+
         }
 
 
         // Fixed update is called in sync with physics
         private void FixedUpdate()
         {
-            // read inputs
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            //if (photonView.IsMine)
+            //{
+
+            if (isPlayerOne)
+            {
+                h = CrossPlatformInputManager.GetAxis("J1Horizontal");
+                v = CrossPlatformInputManager.GetAxis("J1Vertical");
+                rightStickX = CrossPlatformInputManager.GetAxis("J1RightStickHorizontal");
+                rightStickY = CrossPlatformInputManager.GetAxis("J1RightStickVertical");
+                rightTrigger = CrossPlatformInputManager.GetAxis("J1RightTrigger");
+                abilityCancelButton = CrossPlatformInputManager.GetButtonDown("J1CancelAbility");
+            }
+            else
+            {
+                h = CrossPlatformInputManager.GetAxis("J2Horizontal");
+                v = CrossPlatformInputManager.GetAxis("J2Vertical");
+                rightStickX = CrossPlatformInputManager.GetAxis("J2RightStickHorizontal");
+                rightStickY = CrossPlatformInputManager.GetAxis("J2RightStickVertical");
+                rightTrigger = CrossPlatformInputManager.GetAxis("J2RightTrigger");
+                abilityCancelButton = CrossPlatformInputManager.GetButtonDown("J2CancelAbility");
+            }
+
             bool crouch = Input.GetKey(KeyCode.C);
 
             // calculate move direction to pass to character
-            if (m_Cam != null)
+            if (m_Cam != null && moveRelativeToCamera)
             {
                 // calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
-                m_Move = v*m_CamForward + h*m_Cam.right;
+                m_Move = v * m_CamForward + h * m_Cam.right;
             }
             else
             {
                 // we use world-relative directions in the case of no main camera
-                m_Move = v*Vector3.forward + h*Vector3.right;
+                m_Move = v * Vector3.forward + h * Vector3.right;
             }
 #if !MOBILE_INPUT
-			// walk speed multiplier
-	        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
+            // walk speed multiplier
+            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
 #endif
 
             // pass all parameters to the character control script
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
+            //}
         }
     }
 }

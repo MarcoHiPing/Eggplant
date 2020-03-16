@@ -3,6 +3,8 @@
 #if !(UNITY_SWITCH || UNITY_TVOS || UNITY_IPHONE || UNITY_IOS  || UNITY_ANDROID || UNITY_FLASH || UNITY_PS3 || UNITY_PS4 || UNITY_XBOXONE || UNITY_BLACKBERRY || UNITY_METRO || UNITY_WP8 || UNITY_PSM || UNITY_WEBGL || UNITY_SWITCH)
 
 using UnityEngine;
+using UnityEngine.Video;
+
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -11,7 +13,7 @@ namespace HutongGames.PlayMaker.Actions
 	public class PauseMovieTexture : FsmStateAction
 	{
 		[RequiredField]
-		[ObjectType(typeof(MovieTexture))]
+		[ObjectType(typeof(VideoPlayer))]
 		public FsmObject movieTexture;
 
 		public override void Reset()
@@ -21,7 +23,7 @@ namespace HutongGames.PlayMaker.Actions
 
 		public override void OnEnter()
 		{
-			var movie = movieTexture.Value as MovieTexture;
+			var movie = movieTexture.Value as VideoPlayer;
 
 			if (movie != null)
 			{

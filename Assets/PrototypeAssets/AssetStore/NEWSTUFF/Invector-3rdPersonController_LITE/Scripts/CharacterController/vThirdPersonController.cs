@@ -1,9 +1,49 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Invector.vCharacterController
 {
     public class vThirdPersonController : vThirdPersonAnimator
     {
+        public float stepFreq = 0.1f;
+
+        private int normalFootstepIndex;
+        private int metalFootstepIndex;
+
+        private float timer = 0f;
+        private string floortag;
+        private RaycastHit hit = new RaycastHit();
+
+        public void Update()
+        {
+            if (_rigidbody.velocity.magnitude > 0.2f && !isJumping && isGrounded && Time.time > timer + stepFreq)
+            {
+                if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down, out hit))
+                {
+                    floortag = hit.collider.gameObject.tag;
+                    if (floortag == "Metal")
+                    {
+                        if (metalFootstepIndex > metalFloorSounds.Length - 1)
+                            metalFootstepIndex = 0;
+
+                        AudioManager.instance.PlayClip(metalFloorSounds[metalFootstepIndex], 0f);
+                        metalFootstepIndex++;
+                    }
+                    else
+                    {
+                        if (normalFootstepIndex > normalFloorSounds.Length - 1)
+                            normalFootstepIndex = 0;
+
+                        AudioManager.instance.PlayClip(normalFloorSounds[normalFootstepIndex], 0f);
+                        normalFootstepIndex++;
+
+                    }
+
+                    timer = Time.time;
+                }
+            }
+        }
+
         public virtual void ControlAnimatorRootMotion()
         {
             if (!this.enabled) return;
@@ -75,6 +115,7 @@ namespace Invector.vCharacterController
             else
             {
                 moveDirection = new Vector3(inputSmooth.x, 0, inputSmooth.z);
+                AudioManager.instance.PlayClip(normalFloorSounds[0], 0.1f);
             }
         }
 
@@ -117,6 +158,8 @@ namespace Invector.vCharacterController
             // trigger jump behaviour
             jumpCounter = jumpTimer;
             isJumping = true;
+
+            AudioManager.instance.PlayClip(jumpSound, 0f);
 
             // trigger jump animations
             if (input.sqrMagnitude < 0.1f)

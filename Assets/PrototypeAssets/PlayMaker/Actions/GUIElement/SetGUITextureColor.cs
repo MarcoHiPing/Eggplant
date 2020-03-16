@@ -2,6 +2,8 @@
 
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -11,7 +13,7 @@ namespace HutongGames.PlayMaker.Actions
 	#pragma warning disable CS0618  
 	[Obsolete("GUITexture is part of the legacy UI system and will be removed in a future release")]
 	#endif
-	public class SetGUITextureColor : ComponentAction<GUITexture>
+	public class SetGUITextureColor : ComponentAction<Text>
 	{
 		[RequiredField]
 		[CheckForComponent(typeof(GUITexture))]

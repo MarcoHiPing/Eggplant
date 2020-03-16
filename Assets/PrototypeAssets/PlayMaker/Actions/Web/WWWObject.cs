@@ -3,6 +3,7 @@
 #if !(UNITY_SWITCH || UNITY_TVOS || UNITY_IPHONE || UNITY_IOS || UNITY_ANDROID || UNITY_FLASH || UNITY_PS3 || UNITY_PS4 || UNITY_XBOXONE || UNITY_BLACKBERRY || UNITY_WP8 || UNITY_PSM || UNITY_WEBGL || UNITY_SWITCH)
 
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace HutongGames.PlayMaker.Actions
 {
@@ -25,7 +26,7 @@ namespace HutongGames.PlayMaker.Actions
 		public FsmTexture storeTexture;
 
         [UIHint(UIHint.Variable)]
-		[ObjectType(typeof(MovieTexture))]
+		[ObjectType(typeof(VideoPlayer))]
 		[Tooltip("Gets a Texture from the url.")]
 		public FsmObject storeMovieTexture;
 
