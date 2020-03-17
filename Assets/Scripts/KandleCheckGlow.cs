@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class KandleCheckGlow : MonoBehaviour
 {
+    [Space]
+    [Header("Animation")]
+    private bool playAnimation;
+    public Animator animator;
+
     private MeshRenderer matToChange;
     public Color toColor;
     public float matChangeTime = 2f;
@@ -12,6 +17,7 @@ public class KandleCheckGlow : MonoBehaviour
 
     void Start()
     {
+        playAnimation = GetComponent<Animator>() != null;
         matToChange = GetComponent<MeshRenderer>();
     }
 
@@ -22,6 +28,10 @@ public class KandleCheckGlow : MonoBehaviour
             if (Kandle.numOfKandlesLit == 5)
             {
                 StartCoroutine(ChangeEmissiveColorRoutine());
+
+                if(playAnimation)
+                    animator.SetTrigger("GateUp");
+
                 glowing = true;
             }
         }

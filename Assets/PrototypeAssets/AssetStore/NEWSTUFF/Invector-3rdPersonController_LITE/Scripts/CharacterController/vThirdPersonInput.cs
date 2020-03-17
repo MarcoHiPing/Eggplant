@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace Invector.vCharacterController
 {
@@ -7,9 +8,6 @@ namespace Invector.vCharacterController
         #region Variables       
 
         [Header("Controller Input")]
-        public string horizontalInput = "Horizontal";
-        public string verticallInput = "Vertical";
-        public KeyCode jumpInput = KeyCode.Space;
         public KeyCode strafeInput = KeyCode.Tab;
         public KeyCode sprintInput = KeyCode.LeftShift;
 
@@ -20,6 +18,9 @@ namespace Invector.vCharacterController
         [HideInInspector] public vThirdPersonController cc;
         [HideInInspector] public vThirdPersonCamera tpCamera;
         [HideInInspector] public Camera cameraMain;
+
+        [Header("Character")]
+        [SerializeField] private BaseCharacterController character;
 
         #endregion
 
@@ -76,15 +77,16 @@ namespace Invector.vCharacterController
         {
             MoveInput();
             CameraInput();
-            SprintInput();
-            StrafeInput();
             JumpInput();
+            character.UpdateInput();
+            //SprintInput();
+            //StrafeInput();
         }
 
         public virtual void MoveInput()
         {
-            cc.input.x = Input.GetAxis(horizontalInput);
-            cc.input.z = Input.GetAxis(verticallInput);
+            cc.input.x = Input.GetAxis(character.xMove);
+            cc.input.z = Input.GetAxis(character.yMove);
         }
 
         protected virtual void CameraInput()
@@ -115,16 +117,16 @@ namespace Invector.vCharacterController
 
         protected virtual void StrafeInput()
         {
-            if (Input.GetKeyDown(strafeInput))
-                cc.Strafe();
+            //if (Input.GetKeyDown(strafeInput))
+            //    cc.Strafe();
         }
 
         protected virtual void SprintInput()
         {
-            if (Input.GetKeyDown(sprintInput))
-                cc.Sprint(true);
-            else if (Input.GetKeyUp(sprintInput))
-                cc.Sprint(false);
+            //if (Input.GetKeyDown(sprintInput))
+            //    cc.Sprint(true);
+            //else if (Input.GetKeyUp(sprintInput))
+            //    cc.Sprint(false);
         }
 
         /// <summary>
@@ -141,7 +143,7 @@ namespace Invector.vCharacterController
         /// </summary>
         protected virtual void JumpInput()
         {
-            if ((Input.GetKeyDown(jumpInput) || Input.GetButtonDown("Jump")) && JumpConditions())
+            if (CrossPlatformInputManager.GetButtonDown(character.jumpInput) && JumpConditions())
                 cc.Jump();
         }
 

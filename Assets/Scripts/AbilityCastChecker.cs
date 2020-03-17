@@ -36,6 +36,7 @@ public class AbilityCastChecker : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetAxis(cc.rightTrigger) > 0f && !abilityTriggered)
         {
+            Debug.Log("Object found");
             ActivateAbilityCheck();
             abilityTriggered = true;
         }

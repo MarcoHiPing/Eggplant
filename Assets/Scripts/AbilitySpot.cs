@@ -21,4 +21,9 @@ public class AbilitySpot : MonoBehaviour
     {
         GetComponent<Renderer>().material = defaultMat;
     }
+
+    public void Test()
+    {
+        Destroy(gameObject);
+    }
 }
