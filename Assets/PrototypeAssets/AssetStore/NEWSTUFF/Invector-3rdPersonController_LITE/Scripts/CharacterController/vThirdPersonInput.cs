@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace Invector.vCharacterController
 {
@@ -7,9 +9,6 @@ namespace Invector.vCharacterController
         #region Variables       
 
         [Header("Controller Input")]
-        public string horizontalInput = "Horizontal";
-        public string verticallInput = "Vertical";
-        public KeyCode jumpInput = KeyCode.Space;
         public KeyCode strafeInput = KeyCode.Tab;
         public KeyCode sprintInput = KeyCode.LeftShift;
 
@@ -21,14 +20,23 @@ namespace Invector.vCharacterController
         [HideInInspector] public vThirdPersonCamera tpCamera;
         [HideInInspector] public Camera cameraMain;
 
+        [Header("Character")]
+        [SerializeField] private BaseCharacterController controller;
+        
+        Vector2 moveAxis;
         #endregion
-
         protected virtual void Start()
         {
             InitilizeController();
             InitializeTpCamera();
-        }
 
+            
+        }
+        public void OnMove(InputAction.CallbackContext obj)
+        {
+            moveAxis = obj.ReadValue<Vector2>();
+
+        }
         protected virtual void FixedUpdate()
         {
             cc.UpdateMotor();               // updates the ThirdPersonMotor methods
@@ -76,15 +84,15 @@ namespace Invector.vCharacterController
         {
             MoveInput();
             CameraInput();
-            SprintInput();
-            StrafeInput();
-            JumpInput();
+      
+            //SprintInput();
+            //StrafeInput();
         }
 
         public virtual void MoveInput()
         {
-            cc.input.x = Input.GetAxis(horizontalInput);
-            cc.input.z = Input.GetAxis(verticallInput);
+            cc.input.x = moveAxis.x;
+            cc.input.z = moveAxis.y;
         }
 
         protected virtual void CameraInput()
@@ -115,16 +123,16 @@ namespace Invector.vCharacterController
 
         protected virtual void StrafeInput()
         {
-            if (Input.GetKeyDown(strafeInput))
-                cc.Strafe();
+            //if (Input.GetKeyDown(strafeInput))
+            //    cc.Strafe();
         }
 
         protected virtual void SprintInput()
         {
-            if (Input.GetKeyDown(sprintInput))
-                cc.Sprint(true);
-            else if (Input.GetKeyUp(sprintInput))
-                cc.Sprint(false);
+            //if (Input.GetKeyDown(sprintInput))
+            //    cc.Sprint(true);
+            //else if (Input.GetKeyUp(sprintInput))
+            //    cc.Sprint(false);
         }
 
         /// <summary>
@@ -139,10 +147,12 @@ namespace Invector.vCharacterController
         /// <summary>
         /// Input to trigger the Jump 
         /// </summary>
-        protected virtual void JumpInput()
+        public virtual void JumpInput(InputAction.CallbackContext obj)
         {
-            if ((Input.GetKeyDown(jumpInput) || Input.GetButtonDown("Jump")) && JumpConditions())
-                cc.Jump();
+            if (!obj.performed)
+                return;
+            if ( JumpConditions())
+            cc.Jump();
         }
 
         #endregion       

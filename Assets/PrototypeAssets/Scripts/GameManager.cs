@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
         //StartCoroutine(SpawnPlayerWithDelay());
+
         //if (FirstPersonController.LocalPlayerInstance == null)
         //{
         //    Debug.LogFormat("We are Instantiating LocalPlayer from {0}", SceneManagerHelper.ActiveSceneName);
