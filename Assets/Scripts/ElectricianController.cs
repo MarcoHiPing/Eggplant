@@ -1,30 +1,68 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Invector.vCharacterController;
+﻿using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
 
 public class ElectricianController : BaseCharacterController
 {
-    public CharacterAbility ability;
-    private Rigidbody rb;
+    public CharacterAbility zap;
 
-    void Start()
+    private void OnEnable()
     {
-        rb = GetComponent<Rigidbody>();
+        controls.Enable();
     }
 
-    public override void UpdateInput()
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+    public  void Start()
+    {
+        
+        //controls.Electrician.Zap.performed += CastAbility;
+        //controls.Electrician.AbilityActivate.started += ActiavateAbility;
+        //controls.Electrician.AbilityActivate.canceled += DeactivateAbility;
+        //controls.Electrician.TargetSwitch.started += SwitchTarget;
+        //Debug.Log("GAME: " + Gamepad.current.name);
+
+    }
+   
+    public void ActiavateAbility(InputAction.CallbackContext obj)
+    {
+        if (!obj.performed)
+            return;
+        Debug.Log("ACTIVATE ABILITY");
+        abilityCastChecker.ActivateAbility();
+    }
+
+    public void DeactivateAbility(InputAction.CallbackContext obj)
+    {
+        if (!obj.canceled)
+            return;
+        abilityCastChecker.DeactivateAbility();
+
+    }
+    public void SwitchTarget(InputAction.CallbackContext obj)
+    {
+        if (!obj.performed)
+            return;
+        abilityCastChecker.SwitchTarget(obj.ReadValue<Vector2>());
+
+    }
+    //Zap
+    public void CastAbility(InputAction.CallbackContext obj)
+    {
+        if (!obj.performed)
+            return;
+        if (abilityCastChecker.closestObject != null)
+        {
+            zap.Cast(abilityCastChecker.closestObject.transform);
+            abilityCastChecker.ResetAbility();
+        }
+    }
+
+    public  void Update()
     {
         abilityCastChecker.UpdateSelection();
-        abilityCastChecker.UpdateInput();
-
-        if (Input.GetButtonDown(abilityCastInput))
-        {
-            if (abilityCastChecker.closestObject != null)
-            {
-                ability.Cast(abilityCastChecker.closestObject.transform);
-                abilityCastChecker.ResetAbility();
-            }
-        }
+      
     }
 }

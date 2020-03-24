@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace Invector.vCharacterController
@@ -20,16 +21,22 @@ namespace Invector.vCharacterController
         [HideInInspector] public Camera cameraMain;
 
         [Header("Character")]
-        [SerializeField] private BaseCharacterController character;
-
+        [SerializeField] private BaseCharacterController controller;
+        
+        Vector2 moveAxis;
         #endregion
-
         protected virtual void Start()
         {
             InitilizeController();
             InitializeTpCamera();
-        }
 
+            
+        }
+        public void OnMove(InputAction.CallbackContext obj)
+        {
+            moveAxis = obj.ReadValue<Vector2>();
+
+        }
         protected virtual void FixedUpdate()
         {
             cc.UpdateMotor();               // updates the ThirdPersonMotor methods
@@ -77,16 +84,15 @@ namespace Invector.vCharacterController
         {
             MoveInput();
             CameraInput();
-            JumpInput();
-            character.UpdateInput();
+      
             //SprintInput();
             //StrafeInput();
         }
 
         public virtual void MoveInput()
         {
-            cc.input.x = Input.GetAxis(character.xMove);
-            cc.input.z = Input.GetAxis(character.yMove);
+            cc.input.x = moveAxis.x;
+            cc.input.z = moveAxis.y;
         }
 
         protected virtual void CameraInput()
@@ -141,10 +147,12 @@ namespace Invector.vCharacterController
         /// <summary>
         /// Input to trigger the Jump 
         /// </summary>
-        protected virtual void JumpInput()
+        public virtual void JumpInput(InputAction.CallbackContext obj)
         {
-            if (CrossPlatformInputManager.GetButtonDown(character.jumpInput) && JumpConditions())
-                cc.Jump();
+            if (!obj.performed)
+                return;
+            if ( JumpConditions())
+            cc.Jump();
         }
 
         #endregion       

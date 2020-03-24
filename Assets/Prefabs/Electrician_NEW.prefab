@@ -634,6 +634,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -651,6 +652,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1421,8 +1423,8 @@ MonoBehaviour:
   header: 'Full Version Features:'
   comment: "- Generic Action Interaction System\n- Advanced StepOffset & GroundSnaper\n-
     Climb Ladder \n- Health & Stamina With UI\n- Footstep System\n- Ragdoll System
-    \n- Slide Slopes\n- Powerful Events\n- Debug Window\n- Crouch\n- Roll\n- And much
-    more..."
+    \n- Slide Slopes\n- Powerful Events\n- Debug Window\n- Crouch\n- Roll\n- And
+    much more..."
   inEdit: 0
 --- !u!95 &6829469290455920562
 Animator:
@@ -1525,7 +1527,7 @@ MonoBehaviour:
   cc: {fileID: 0}
   tpCamera: {fileID: 0}
   cameraMain: {fileID: 0}
-  character: {fileID: 4425428723399260367}
+  controller: {fileID: 0}
 --- !u!54 &6829469290455920567
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1606,16 +1608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6796056b763a94744847526cf33a896c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMove: J1Horizontal
-  yMove: J1Vertical
-  jumpInput: J1Jump
-  xRightStick: J1RightStickHorizontal
-  yRightStick: J1RightStickVertical
-  rightTrigger: J1RightTrigger
-  abilityCastInput: J1MainAbility
-  attachInput: 
   abilityCastChecker: {fileID: 4425428723399260374}
-  ability: {fileID: 4425428723399260366}
+  zap: {fileID: 0}
 --- !u!114 &2100160196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1628,11 +1622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb899cd8ad201f44bc581ce53aebda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 6829469291666613275}
-  otherPlayer: {fileID: 0}
-  attachModeMat: {fileID: 2100000, guid: 32b475c93d2236345b2f5eec029deed9, type: 2}
-  attachMaxDistance: 3
-  matToChangeIndex: 4
 --- !u!114 &4425428723399260366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1962,6 +1951,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1979,6 +1969,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -2737,6 +2728,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2754,6 +2746,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -3270,6 +3263,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3287,6 +3281,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

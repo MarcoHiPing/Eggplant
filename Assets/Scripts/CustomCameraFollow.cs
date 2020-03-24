@@ -5,29 +5,58 @@ using UnityEngine;
 
 public class CustomCameraFollow : MonoBehaviour
 {
-    public List<Transform> players = new List<Transform>();
-    public Transform cameraFocusObject;
+    [SerializeField]List< Transform> targets;
+    public Transform centerObject;
     public float maxDistanceApart = 15f;
 
-    public CinemachineVirtualCamera currCamera;
+    CinemachineVirtualCamera currCamera;
     private float defaultFOV;
+    public float player1Weight;
+    public float playeer2Weight;
+    Bounds cameraBound;
+    Vector3 velocity;
+    [SerializeField]float maxZoom, minZoom;
 
     void Start()
     {
+        currCamera = GetComponent<CinemachineVirtualCamera>();
         currCamera.m_Lens.FieldOfView = 60f;
         defaultFOV = currCamera.m_Lens.FieldOfView;
+        cameraBound = new Bounds();
+    
     }
-
+    private void Update()
+    {
+       
+        
+    }
     void LateUpdate()
     {
-        var distance = Vector3.Distance(players[0].position, players[1].position);
-        cameraFocusObject.position = players[0].position + (players[1].position - players[0].position) / 2;
+        //var distance = Vector3.Distance(player1.position, player2.position);
+        //cameraFocusObject.position = player1.position + (player2.position - player1.position) / 2;
 
-        if (distance > maxDistanceApart)
+        //if (distance > maxDistanceApart)
+        //{
+        //    currCamera.m_Lens.FieldOfView =  (defaultFOV + (distance - maxDistanceApart));
+
+        //}
+        Vector3 centerPos = GetEncapsulatedCameraBound().center;
+        centerObject.position = Vector3.SmoothDamp(centerObject.position, centerPos,ref velocity,Time.deltaTime);
+        float Fov = Mathf.Lerp(minZoom, maxZoom, GetEncapsulatedCameraBound().size.x/40f);
+        //currCamera.m_Lens.FieldOfView = Mathf.Lerp(currCamera.m_Lens.FieldOfView, Fov, Time.deltaTime);
+        
+    }
+    Bounds GetEncapsulatedCameraBound()
+    {
+
+        cameraBound = new Bounds(targets[0].position, Vector3.zero);
+        foreach (var player in targets)
         {
-            currCamera.m_Lens.FieldOfView =  (defaultFOV + (distance - maxDistanceApart));
-
+            cameraBound.Encapsulate(player.position);
         }
+
+
+        return cameraBound;
     }
 
     public void ChangeCamera(CinemachineVirtualCamera newCam)

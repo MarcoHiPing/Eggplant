@@ -1,30 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public abstract class BaseCharacterController : MonoBehaviour
 {
     [Space]
     [Header("Character Controls")]
-
-    public string xMove;
-    public string yMove;
-    public string jumpInput;
-
-    public string xRightStick;
-    public string yRightStick;
-    public string rightTrigger;
-    public string abilityCastInput;
-    public string attachInput;
+    public PlayerControls controls;
 
     [Header("Ability Cast Checker")]
     public AbilityCastChecker abilityCastChecker;
 
-
-    void Start()
+    
+    public virtual void Awake()
     {
-
+        controls = new PlayerControls();
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
-    public abstract void UpdateInput();
 }

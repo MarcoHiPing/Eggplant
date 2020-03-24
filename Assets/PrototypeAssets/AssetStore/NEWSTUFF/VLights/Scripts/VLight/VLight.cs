@@ -1133,7 +1133,9 @@ public partial class VLight : MonoBehaviour
             orthoSize = Mathf.Max(0.001f, orthoSize);
 
             cam.ResetProjectionMatrix();
+           
             cam.projectionMatrix = CalculateProjectionMatrix();
+       
             switch (lightType)
             {
                 case LightTypes.Area:

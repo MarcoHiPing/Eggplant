@@ -13,10 +13,10 @@ public class Kandle : ZappableObject
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            KandleAction();
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    KandleAction();
+        //}
     }
 
     public void KandleAction()

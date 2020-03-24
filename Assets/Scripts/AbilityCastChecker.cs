@@ -1,6 +1,7 @@
 ﻿using System.Xml.Schema;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.CrossPlatformInput;
 using Vector3 = UnityEngine.Vector3;
@@ -32,35 +33,66 @@ public class AbilityCastChecker : MonoBehaviour
         cc = GetComponent<BaseCharacterController>();
     }
 
-    public void UpdateInput()
+    public void ActivateAbility()
     {
-        if (CrossPlatformInputManager.GetAxis(cc.rightTrigger) > 0f && !abilityTriggered)
+        if(!abilityTriggered)
         {
             Debug.Log("Object found");
             ActivateAbilityCheck();
             abilityTriggered = true;
-        }
+        }    
+    }
 
-        if (CrossPlatformInputManager.GetAxis(cc.rightTrigger) <= 0.1f && abilityTriggered)
+    public void DeactivateAbility()
+    {
+        if (abilityTriggered)
         {
             closestObject = null;
             DeactivateAbilityCheck();
             abilityCanceled = true;
             abilityTriggered = false;
         }
-
-        if ((rightStickX != 0f || rightStickY != 0f) && abilityTriggered && !nextToggled)
+    }
+    public void SwitchTarget(Vector2 axisVal)
+    {
+        
+        if (abilityTriggered )
         {
-            //if(PhotonNetwork.NickName.ToLower().Contains("electrician"))
-            NextClosestAbilitySpot(new Vector2(rightStickX, rightStickY));
+            NextClosestAbilitySpot(axisVal);
 
-            nextToggled = true;
+          
         }
+    }
 
-        if (rightStickX == 0f && rightStickY == 0f)
-        {
-            nextToggled = false;
-        }
+    public void UpdateInput()
+    {
+        //if (CrossPlatformInputManager.GetAxis(cc.rightTrigger) > 0f && !abilityTriggered)
+        //{
+        //    Debug.Log("Object found");
+        //    ActivateAbilityCheck();
+        //    abilityTriggered = true;
+        //}
+
+        //if (CrossPlatformInputManager.GetAxis(cc.rightTrigger) <= 0.1f && abilityTriggered)
+        //{
+        //    closestObject = null;
+        //    DeactivateAbilityCheck();
+        //    abilityCanceled = true;
+        //    abilityTriggered = false;
+        //}
+
+        //if ((rightStickX != 0f || rightStickY != 0f) && abilityTriggered && !nextToggled)
+        //{
+        //    //if(PhotonNetwork.NickName.ToLower().Contains("electrician"))
+        //    NextClosestAbilitySpot(new Vector2(rightStickX, rightStickY));
+
+        //    nextToggled = true;
+        //}
+
+        //if (rightStickX == 0f && rightStickY == 0f)
+        //{
+        //    nextToggled = false;
+        //}
     }
 
     public void ResetAbility()
@@ -177,8 +209,8 @@ public class AbilityCastChecker : MonoBehaviour
 
     public void UpdateSelection()
     {
-        rightStickX = CrossPlatformInputManager.GetAxis(cc.xRightStick);
-        rightStickY = CrossPlatformInputManager.GetAxis(cc.yRightStick);
+        //rightStickX = CrossPlatformInputManager.GetAxis(cc.xRightStick);
+        //rightStickY = CrossPlatformInputManager.GetAxis(cc.yRightStick);
 
         objectsHit = Physics.OverlapSphere(transform.position, abilityDetectRadius, layersToHit);
 

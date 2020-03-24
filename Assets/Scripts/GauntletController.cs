@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using Invector.vCharacterController;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GauntletController : BaseCharacterController
 {
@@ -13,9 +13,40 @@ public class GauntletController : BaseCharacterController
 
     private Rigidbody rb;
 
-    void Start()
+    private void OnEnable()
     {
-        rb = GetComponent<Rigidbody>();
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+   public  void  Start()
+    {
+       
+        rb = GetComponent<Rigidbody>(); 
+      
+    }
+
+    public void ActivateAbility(InputAction.CallbackContext obj)
+    {
+        if (!obj.performed)
+            return;
+        abilityCastChecker.ActivateAbility();
+    }
+
+    public void DeactivateAbility(InputAction.CallbackContext obj)
+    {
+        if (!obj.canceled)
+            return;
+        abilityCastChecker.DeactivateAbility();
+
+    }
+    public void SwitchTarget(InputAction.CallbackContext obj)
+    {
+        abilityCastChecker.SwitchTarget(obj.ReadValue<Vector2>());
+
     }
 
     public void HookMotion(Vector3 posToMove)
@@ -33,18 +64,20 @@ public class GauntletController : BaseCharacterController
         }
     }
 
-    public override void UpdateInput()
+    public void CastAbility(InputAction.CallbackContext obj)
+    {
+        if (!obj.performed)
+            return;
+        if (abilityCastChecker.closestObject != null)
+        {
+            hook.Cast(abilityCastChecker.closestObject.transform);
+            abilityCastChecker.ResetAbility();
+        }
+    }
+
+    public  void Update()
     {
         abilityCastChecker.UpdateSelection();
-        abilityCastChecker.UpdateInput();
-
-        if (Input.GetButtonDown(abilityCastInput))
-        {
-            if (abilityCastChecker.closestObject != null)
-            {
-                hook.Cast(abilityCastChecker.closestObject.transform);
-                abilityCastChecker.ResetAbility();
-            }
-        }
+        
     }
 }
